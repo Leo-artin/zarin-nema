@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fa" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#09120f" />
+    <title>زرین‌نما | قیمت زنده طلا</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Vazirmatn:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="grain grain-one"></div><div class="grain grain-two"></div>
+    <main class="shell">
+      <header class="topbar">
+        <a class="brand" href="#top" aria-label="Zarin Nema home">
+          <span class="brand-mark"><i></i><i></i><i></i></span>
+          <span data-i18n="brand">زرین‌نما</span>
+        </a>
+        <nav class="nav-links">
+          <a href="#prices" data-i18n="navPrices">قیمت‌ها</a>
+          <a href="#converter" data-i18n="navConverter">مبدل</a>
+          <a href="#about" data-i18n="navAbout">درباره داده‌ها</a>
+        </nav>
+        <div class="top-actions">
+          <span class="live-pill" id="connectionStatus"><b></b><span data-i18n="connecting">در حال اتصال</span></span>
+          <button class="language-toggle" id="languageToggle" type="button" aria-label="Change language">EN</button>
+        </div>
+      </header>
+
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow"><span></span><span data-i18n="eyebrow">نبض بازار فلزات گران‌بها</span></p>
+          <h1 data-i18n="heroTitle">طلا را، با چشم باز معامله کنید.</h1>
+          <p class="hero-text" data-i18n="heroText">قیمت لحظه‌ای طلای جهانی و برآورد بازار ایران، در کنار مبدلی که با واحدهای حرفه‌ای بازار کار می‌کند.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#prices" data-i18n="viewPrices">مشاهده قیمت‌ها</a>
+            <a class="button ghost" href="#converter"><span data-i18n="openConverter">باز کردن مبدل</span><span class="arrow">←</span></a>
+          </div>
+        </div>
+        <section class="spot-card" aria-label="Gold spot price">
+          <div class="spot-heading"><span data-i18n="spotGold">طلای جهانی</span><span class="market-chip">XAU / USD</span></div>
+          <div class="spot-price"><span id="spotPrice">—</span><small data-i18n="perOunce">دلار / اونس تروا</small></div>
+          <div class="spot-toman" id="spotToman">—</div>
+          <div class="spot-bottom">
+            <span id="spotChange" class="neutral">—</span>
+            <span id="lastUpdated">—</span>
+          </div>
+          <div class="sparkline" aria-hidden="true"><svg viewBox="0 0 360 80" preserveAspectRatio="none"><defs><linearGradient id="fade" x1="0" x2="0" y1="0" y2="1"><stop stop-color="#d5a93d" stop-opacity=".34"/><stop offset="1" stop-color="#d5a93d" stop-opacity="0"/></linearGradient></defs><path d="M0,57 C20,60 32,43 54,51 S83,38 103,44 S132,22 154,35 S184,43 201,26 S231,35 249,17 S275,34 298,22 S331,13 360,18 L360,80 L0,80Z" fill="url(#fade)"/><path d="M0,57 C20,60 32,43 54,51 S83,38 103,44 S132,22 154,35 S184,43 201,26 S231,35 249,17 S275,34 298,22 S331,13 360,18" fill="none" stroke="#d5a93d" stroke-width="2.2"/></svg></div>
+        </section>
+      </section>
+
+      <section class="metrics" aria-label="Market summary">
+        <article><span data-i18n="usdRate">دلار مبنا</span><strong id="usdToman">—</strong><small data-i18n="tomanUnit">تومان</small></article>
+        <article><span data-i18n="gram24">هر گرم ۲۴ عیار</span><strong id="gram24">—</strong><small id="gram24Usd">—</small></article>
+        <article><span data-i18n="mithqal17">هر مثقال ۱۷ عیار</span><strong id="mithqal17">—</strong><small id="mithqal17Usd">—</small></article>
+        <article><span data-i18n="refreshes">به‌روزرسانی خودکار</span><strong>60</strong><small data-i18n="seconds">ثانیه</small></article>
+      </section>
+
+      <section class="price-section" id="prices">
+        <div class="section-heading">
+          <div><p class="eyebrow plain" data-i18n="liveBoard">تابلوی زنده</p><h2 data-i18n="priceTitle">قیمت عیارهای طلا</h2></div>
+          <div class="board-meta"><span id="priceTimestamp">—</span><button id="refreshButton" class="icon-button" type="button" aria-label="Refresh prices">↻</button></div>
+        </div>
+        <div class="source-note"><span>i</span><p data-i18n="sourceNotice">قیمت ایران از نرخ جهانی × نرخ دلار محاسبه می‌شود. برای نرخ بازار آزاد، مقدار دلار را در تنظیمات داده وارد کنید.</p><button id="openSettings" type="button" data-i18n="dataSettings">تنظیمات داده</button></div>
+        <div class="price-grid" id="priceGrid"></div>
+      </section>
+
+      <section class="converter-section" id="converter">
+        <div class="converter-intro">
+          <p class="eyebrow plain" data-i18n="precisionTool">ابزار دقیق</p>
+          <h2 data-i18n="converterTitle">مبدل واحدهای طلا</h2>
+          <p data-i18n="converterText">بین اونس، مثقال، گرم، سوت، کیلوگرم و واحدهای متداول بازار تبدیل کنید.</p>
+          <div class="unit-cloud"><span>oz t</span><span>مثقال</span><span>g</span><span>سوت</span><span>kg</span><span>ct</span></div>
+        </div>
+        <form class="converter-card" id="converterForm">
+          <label><span data-i18n="amount">مقدار</span><input id="amountInput" type="number" min="0" step="any" value="1" inputmode="decimal" /></label>
+          <div class="unit-row">
+            <label><span data-i18n="from">از واحد</span><select id="fromUnit"></select></label>
+            <button class="swap-button" id="swapButton" type="button" aria-label="Swap units">⇄</button>
+            <label><span data-i18n="to">به واحد</span><select id="toUnit"></select></label>
+          </div>
+          <div class="conversion-result"><span data-i18n="result">نتیجه تبدیل</span><strong id="conversionValue">—</strong><small id="conversionUnit">—</small></div>
+          <div class="purity-line"><label for="puritySelect" data-i18n="purity">عیار قطعه (برای محاسبه طلای خالص)</label><select id="puritySelect"></select><span id="fineGoldResult">—</span></div>
+        </form>
+      </section>
+
+      <section class="info-strip" id="about">
+        <div><span class="info-number">01</span><h3 data-i18n="infoOneTitle">داده جهانی زنده</h3><p data-i18n="infoOneText">قیمت لحظه‌ای XAU/USD به‌صورت خودکار دریافت و هر یک دقیقه تازه می‌شود.</p></div>
+        <div><span class="info-number">02</span><h3 data-i18n="infoTwoTitle">محاسبه شفاف</h3><p data-i18n="infoTwoText">قیمت هر عیار از نسبت خلوص آن به ۲۴ عیار محاسبه می‌شود.</p></div>
+        <div><span class="info-number">03</span><h3 data-i18n="infoThreeTitle">هشدار حرفه‌ای</h3><p data-i18n="infoThreeText">قیمت‌ها اطلاع‌رسانی هستند؛ اجرت، مالیات و حباب بازار در آن‌ها نیست.</p></div>
+      </section>
+
+      <footer><span>© <span id="year"></span> <span data-i18n="brand">زرین‌نما</span></span><span data-i18n="footer">برای تصمیم‌های دقیق‌تر در بازار طلا</span></footer>
+    </main>
+
+    <dialog id="settingsDialog">
+      <form method="dialog" class="settings-card" id="settingsForm">
+        <button class="dialog-close" value="cancel" aria-label="Close">×</button>
+        <p class="eyebrow plain" data-i18n="dataSettings">تنظیمات داده</p>
+        <h2 data-i18n="settingsTitle">نرخ بازار ایران</h2>
+        <p data-i18n="settingsText">برای برآورد نزدیک‌تر به بازار آزاد، نرخ یک دلار آمریکا را به تومان وارد کنید. خالی بگذارید تا نرخ مرجع جهانی استفاده شود.</p>
+        <label><span data-i18n="manualUsd">نرخ دستی دلار (تومان)</span><input id="manualUsdInput" type="number" min="0" step="100" placeholder="مثلاً 100,000" /></label>
+        <div class="settings-actions"><button class="button ghost" id="clearManual" type="button" data-i18n="reset">بازنشانی</button><button class="button primary" value="default" id="saveSettings" data-i18n="save">ذخیره</button></div>
+      </form>
+    </dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
